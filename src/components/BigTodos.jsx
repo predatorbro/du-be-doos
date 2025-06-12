@@ -52,6 +52,10 @@ function Todos({ id, subTitle, note, date }) {
   };
 
   const delBtn = () => {
+    if (!note && !subtitle) {
+      dispatch(deleteNote(id));
+      return;
+    }
     if (window.confirm("Are you sure you want to delete this note?")) dispatch(deleteNote(id));
   };
 
